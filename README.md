@@ -1,5 +1,8 @@
 # utils
 
+![thumbmail](./public/assets/thumbnail.jpg)
+
+
 Lightweight, dependency-free utility functions for modern JavaScript and TypeScript projects.
 
 This package is designed to be simple, secure, and developer-friendly.  

@@ -1,6 +1,6 @@
 # utils
 
-![thumbmail](./public/assets/thumbnail.jpg)
+![thumbmail](./public/assets/utills-web.jpg)
 
 
 Lightweight, dependency-free utility functions for modern JavaScript and TypeScript projects.

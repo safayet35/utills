@@ -2,11 +2,12 @@
 
 ![thumbmail](./public/assets/utills-web.jpg)
 
-
 Lightweight, dependency-free utility functions for modern JavaScript and TypeScript projects.
 
 This package is designed to be simple, secure, and developer-friendly.  
 It works in both **Node.js** and **browser environments** and follows modern **ESM standards**.
+
+**Check out** 👉 [Docs](https://utills.vercel.app/)
 
 ---
 

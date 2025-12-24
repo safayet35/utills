@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+}
+
+/* bg-rose-50 => dark:bg-rose-900/20  
+text-rose-700 => dark:text-rose-400
+
+
+text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-900 hover:text-gray-900 dark:hover:text-gray-100
+
+
+*/
+
+
+
+
+/* utills package design system - Rose accent with gray-950 dark mode */
+
+@theme {
+  --color-background: hsl(0 0% 100%);
+  --color-foreground: hsl(220 20% 10%);
+  --color-card: hsl(0 0% 100%);
+  --color-card-foreground: hsl(220 20% 10%);
+  --color-primary: hsl(347 77% 50%);
+  --color-primary-foreground: hsl(0 0% 100%);
+  --color-secondary: hsl(347 100% 97%);
+  --color-secondary-foreground: hsl(347 77% 40%);
+  --color-muted: hsl(220 14% 96%);
+  --color-muted-foreground: hsl(220 10% 46%);
+  --color-accent: hsl(347 100% 97%);
+  --color-accent-foreground: hsl(347 77% 40%);
+  --color-destructive: hsl(0 84% 60%);
+  --color-destructive-foreground: hsl(0 0% 100%);
+  --color-border: hsl(220 13% 91%);
+  --color-input: hsl(220 13% 91%);
+  --color-ring: hsl(347 77% 50%);
+  --radius: 0.5rem;
+}
+
+/* Dark mode overrides */
+.dark {
+  --color-background: hsl(220 20% 4%);
+  --color-foreground: hsl(210 40% 98%);
+  --color-card: hsl(220 20% 6%);
+  --color-card-foreground: hsl(210 40% 98%);
+  --color-primary: hsl(347 77% 60%);
+  --color-primary-foreground: hsl(220 20% 4%);
+  --color-secondary: hsl(347 40% 12%);
+  --color-secondary-foreground: hsl(347 77% 70%);
+  --color-muted: hsl(220 15% 12%);
+  --color-muted-foreground: hsl(220 10% 60%);
+  --color-accent: hsl(347 40% 12%);
+  --color-accent-foreground: hsl(347 77% 70%);
+  --color-destructive: hsl(0 62% 30%);
+  --color-destructive-foreground: hsl(210 40% 98%);
+  --color-border: hsl(220 15% 15%);
+  --color-input: hsl(220 15% 15%);
+  --color-ring: hsl(347 77% 60%);
+}
+
+* {
+  border-color: var(--color-border);
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+

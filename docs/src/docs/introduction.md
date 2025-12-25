@@ -1,6 +1,6 @@
 # Introduction
 
-A lightweight, developer-friendly utility library for JavaScript and TypeScript projects.
+Utills a lightweight, developer-friendly utility library for JavaScript and TypeScript projects.
 
 This package provides a growing collection of commonly used helper functions that you can reuse across projects instead of rewriting the same logic again and again.
 
@@ -21,12 +21,8 @@ Whether you are working on a small script, a Node.js backend, or a frontend appl
 The package includes utilities for tasks such as:
 
 -   Generating random IDs and secure tokens
--   Formatting values (e.g. currency)
 -   Working with time and dates
 -   Creating helper data structures for UI
 -   Logging and debugging helpers
 
 The API is intentionally kept simple so that each function does **one thing well**.
-
-👉 For the full and detailed documentation, visit:  
-**📖 Installation:** https://your-docs-website.com

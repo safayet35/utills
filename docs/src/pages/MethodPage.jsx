@@ -15,7 +15,7 @@ export default function MethodPage() {
     }
 
     return (
-        <article className="py-10 space-y-10 overflow-x-hidden">
+        <article className="container mx-auto py-6 space-y-10 overflow-x-hidden">
             {/* Header */}
             <header className="space-y-2">
                 <h1 className="text-2xl md:text-3xl font-bold tracking-tight">

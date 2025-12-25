@@ -1,6 +1,6 @@
 import navigation from "../../api/navigation.js";
 import { NavLink } from "react-router-dom";
-const SidebarNavigation = () => {
+const SidebarNavigation = ({ setSidebarOpen }) => {
     const baseClass =
         "flex items-center px-3 py-2 text-sm rounded-lg transition-colors";
 
@@ -19,7 +19,7 @@ const SidebarNavigation = () => {
                     </h3>
                     <ul className="space-y-1">
                         {section.items.map((item, itemIdx) => (
-                            <li key={itemIdx}>
+                            <li onClick={()=> setSidebarOpen( prev => !prev)} key={itemIdx}>
                                 <NavLink
                                     to={`/docs/${item.slug}`}
                                     className={({ isActive }) =>

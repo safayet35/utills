@@ -8,12 +8,15 @@ const AppLayout = () => {
     return (
         <div className="min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100">
             {/* Sidebar (fixed) */}
-            <Sidebar sidebarOpen={sidebarOpen} />
+            <Sidebar
+                sidebarOpen={sidebarOpen}
+                setSidebarOpen={setSidebarOpen}
+            />
 
             {/* Main content */}
             <div className="lg:pl-72">
-                <Header setSidebarOpen={setSidebarOpen} />
-                <main className="p-4 md:p-8 prose max-w-none">
+                <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+                <main className="p-4 md:px-8 md:py-2 prose max-w-none">
                     <Outlet />
                 </main>
             </div>

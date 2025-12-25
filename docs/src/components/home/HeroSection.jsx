@@ -3,7 +3,7 @@ import Button from "../Button";
 import InstallCommand from "./InstallCommand";
 const HeroSection = () => {
     return (
-        <section className="pt-18 pb-20 px-4 sm:px-6 lg:px-8">
+        <section className="pt-8 md:pt-18 pb-20 px-4 sm:px-6 lg:px-8">
             <div className="container mx-auto text-center max-w-4xl">
                 {/* Badge */}
                 <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary text-secondary-foreground text-sm font-medium mb-8">

@@ -14,7 +14,7 @@ if (period === "night" || period === "evening") {
 }`;
 
     return (
-        <section className="py-16 px-4 bg-muted/30">
+        <section id="quick-start" className="py-16 px-4 bg-muted/30">
             <div className="max-w-4xl mx-auto">
                 {/* Header */}
                 <div className="text-center mb-10">

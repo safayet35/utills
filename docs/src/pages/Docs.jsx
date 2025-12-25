@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState} from "react";
 
 import MarkdownRenderer from "../components/MarkdownRenderer";
 
@@ -14,10 +14,8 @@ export default function Docs() {
     }, [slug]);
 
     return (
-      
-
-                <MarkdownRenderer content={content} />
-          
-      
+        <div className="container mx-auto">
+            <MarkdownRenderer content={content} />
+        </div>
     );
 }

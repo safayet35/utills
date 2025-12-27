@@ -1,11 +1,12 @@
 import methods from "./methods.data.js";
 
 // Sidebar auto generate from method data.
-const apiLinks = Object.keys(methods).map(name => ({
-    label: name,
-    slug: `api/${name}`
+const apiLinks = methods.map(method => ({
+    label: method.name,
+    slug: `api/${method.name}`
 }));
 
+console.log(apiLinks);
 const navigation = [
     {
         title: "Getting Started",

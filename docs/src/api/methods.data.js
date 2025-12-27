@@ -1,9 +1,8 @@
 // wee add here are all available methods
 // contributor add your method information like this pattern
 
-const methods = {
-  
-    randomId: {
+const methods = [
+    {
         name: "randomId",
         description: "Generate a cryptographically secure random ID.",
         params: [
@@ -45,7 +44,7 @@ const id2 = randomId({ length: 10 });
 const id3 = randomId({ safe: true });`
     },
 
-    timeAgo: {
+    {
         name: "timeAgo",
         description: "Convert a date to human-readable time.",
         params: [
@@ -62,7 +61,7 @@ const id3 = randomId({ safe: true });`
 timeAgo(new Date());`
     },
 
-    generateSecret: {
+     {
         name: "generateSecret",
         description:
             "Generate a cryptographically secure random secret string using a predefined alphanumeric character set. Works in both browser and Node.js environments.",
@@ -84,7 +83,7 @@ const secret1 = generateSecret()
 const secret2 = generateSecret(32)
 const secret3 = generateSecret(64)`
     },
-    timePeriod: {
+     {
         name: "timePeriod",
         description:
             "Automatically returns the current period of the day based on time. Useful for greetings, themes, and time-based UI logic.",
@@ -104,6 +103,6 @@ const secret3 = generateSecret(64)`
 timePeriod()
 timePeriod(new Date("2025-01-01T18:30:00"))`
     }
-};
+]
 
 export default methods;

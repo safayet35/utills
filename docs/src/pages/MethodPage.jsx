@@ -4,7 +4,8 @@ import MarkdownRenderer from "../components/MarkdownRenderer";
 import CodeBox from "../components/CodeBox";
 export default function MethodPage() {
     const { method } = useParams();
-    const data = methods[method];
+
+    const data = methods.find(meth => meth.name === method);
 
     if (!data) {
         return (

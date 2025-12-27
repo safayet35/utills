@@ -1,9 +1,8 @@
 // wee add here are all available methods
 // contributor add your method information like this pattern
 
-// we can add a array of object but it's okay ;)
-
 const methods = {
+  
     randomId: {
         name: "randomId",
         description: "Generate a cryptographically secure random ID.",

@@ -39,6 +39,32 @@ const id = randomId(10);
         example: `import { timeAgo } from "utills"
 
 timeAgo(new Date());`
+    },
+
+    generateSecret: {
+        name: "generateSecret",
+        description:
+            "Generate a cryptographically secure random secret string using a predefined alphanumeric character set. Works in both browser and Node.js environments.",
+        params: [
+            {
+                name: "length",
+                type: "number",
+                optional: true,
+                default: 32,
+                description:
+                    "Length of the generated secret. Must be greater than 0."
+            }
+        ],
+        returns: "string",
+
+
+        example: `import { generateSecret } from "utills"
+
+const secret1 = generateSecret()
+const secret2 = generateSecret(32)
+const secret3 = generateSecret(64)
+
+console.log(secret1)`
     }
 };
 

@@ -7,3 +7,4 @@
  * generateSecret(64)
  */
 export declare function generateSecret(length?: number): string;
+//# sourceMappingURL=generateSecret.d.ts.map

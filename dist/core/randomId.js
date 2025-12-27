@@ -27,3 +27,4 @@ export function randomId(options = {}) {
     }
     return result;
 }
+//# sourceMappingURL=randomId.js.map

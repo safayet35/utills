@@ -25,3 +25,4 @@ export function generateSecret(length = 32) {
     }
     return secret;
 }
+//# sourceMappingURL=generateSecret.js.map

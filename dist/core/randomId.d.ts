@@ -27,3 +27,4 @@ export interface RandomIdOptions {
  * randomId({ length: 12, safe: true })
  */
 export declare function randomId(options?: RandomIdOptions): string;
+//# sourceMappingURL=randomId.d.ts.map

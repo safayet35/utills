@@ -7,3 +7,4 @@
  * timeAgo(1700000000000)
  */
 export declare function timeAgo(date: Date | string | number, locale?: string): string;
+//# sourceMappingURL=timeAgo.d.ts.map

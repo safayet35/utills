@@ -32,3 +32,4 @@ export function timeAgo(date, locale = "en") {
     }
     return "just now";
 }
+//# sourceMappingURL=timeAgo.js.map

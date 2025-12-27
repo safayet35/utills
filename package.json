@@ -4,7 +4,6 @@
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  
   "exports": {
     ".": "./dist/index.js"
   },
@@ -13,6 +12,9 @@
   ],
   "scripts": {
     "build": "tsc",
-        "test": "vitest"
+    "test": "vitest"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3"
   }
 }

@@ -6,22 +6,44 @@
 const methods = {
     randomId: {
         name: "randomId",
-        description: "Generate a random unique ID.",
+        description: "Generate a cryptographically secure random ID.",
         params: [
             {
-                name: "length",
+                name: "options",
+                type: "object",
+                optional: true,
+                default: "{}",
+                description: "Optional configuration object"
+            },
+            {
+                name: "options.length",
                 type: "number",
                 optional: true,
-                default: 8,
-                description: "Length of the ID"
+                default: 16,
+                description: "Length of the generated ID"
+            },
+            {
+                name: "options.charset",
+                type: "string",
+                optional: true,
+                default: "a-zA-Z0-9",
+                description: "Custom characters set to generate the ID"
+            },
+            {
+                name: "options.safe",
+                type: "boolean",
+                optional: true,
+                default: false,
+                description:
+                    "Removes visually confusing characters (0, O, l, I)"
             }
         ],
         returns: "string",
-        example: `
-import { randomId } from "utills";
+        example: `import { randomId } from "utills";
 
-const id = randomId(10);
-`
+const id1 = randomId();
+const id2 = randomId({ length: 10 });
+const id3 = randomId({ safe: true });`
     },
 
     timeAgo: {
@@ -57,14 +79,31 @@ timeAgo(new Date());`
         ],
         returns: "string",
 
-
         example: `import { generateSecret } from "utills"
 
 const secret1 = generateSecret()
 const secret2 = generateSecret(32)
-const secret3 = generateSecret(64)
+const secret3 = generateSecret(64)`
+    },
+    timePeriod: {
+        name: "timePeriod",
+        description:
+            "Automatically returns the current period of the day based on time. Useful for greetings, themes, and time-based UI logic.",
+        params: [
+            {
+                name: "date",
+                type: "Date",
+                optional: true,
+                default: "current date & time",
+                description:
+                    "Optional date object. Defaults to current date & time."
+            }
+        ],
+        returns: `"morning" | "afternoon" | "evening" | "night"`,
+        example: `import { timePeriod } from "utills"
 
-console.log(secret1)`
+timePeriod()
+timePeriod(new Date("2025-01-01T18:30:00"))`
     }
 };
 

@@ -3,10 +3,9 @@ import { useState, useEffect } from "react";
 import Button from "../Button";
 import ThemeSwitcher from "../ThemeSwitcher";
 import { Link } from "react-router";
-const Header = ({ setSidebarOpen, sidebarOpen }) => {
-    const handleNavToggle = () => {
-        setSidebarOpen(prev => !prev);
-    };
+import { useSidebar } from "../../context/SidebarContext";
+const Header = () => {
+    const { isSidebarOpen, toggleSidebar } = useSidebar();
 
     return (
         <header className="z-10 sticky top-0 left-0 right-0 z-20 bg-background/80 backdrop-blur-md border border-border">
@@ -25,10 +24,10 @@ const Header = ({ setSidebarOpen, sidebarOpen }) => {
                             variant=""
                             size="icon"
                             className="lg:hidden"
-                            onClick={handleNavToggle}
+                            onClick={toggleSidebar}
                             aria-label="Toggle menu"
                         >
-                            {sidebarOpen ? (
+                            {isSidebarOpen ? (
                                 <X className="h-5 w-5" />
                             ) : (
                                 <Menu className="h-5 w-5" />

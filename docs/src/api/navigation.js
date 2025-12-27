@@ -6,7 +6,7 @@ const apiLinks = methods.map(method => ({
     slug: `api/${method.name}`
 }));
 
-console.log(apiLinks);
+
 const navigation = [
     {
         title: "Getting Started",

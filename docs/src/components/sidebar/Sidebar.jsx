@@ -2,6 +2,7 @@ import SidebarHeader from "./SidebarHeader";
 import SearchBar from "../SearchBar";
 import SidebarNavigation from "./SidebarNavigation";
 import SidebarFooter from "./SidebarFooter";
+import { useSidebar } from "../../context/SidebarContext";
 import {
     Menu,
     ChevronRight,
@@ -15,11 +16,13 @@ import {
     Twitter
 } from "lucide-react";
 
-const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
+const Sidebar = () => {
+    const { isSidebarOpen, closeSidebar } = useSidebar();
+
     return (
         <aside
             className={`fixed inset-y-0 left-0 z-30 w-72 bg-white dark:bg-gray-950 border-r border-gray-200 dark:border-gray-800 transform transition-transform duration-300 ${
-                sidebarOpen
+                isSidebarOpen
                     ? "translate-x-0"
                     : "-translate-x-full lg:translate-x-0"
             }`}
@@ -32,7 +35,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                 <SearchBar />
 
                 {/* Navigation */}
-                <SidebarNavigation setSidebarOpen={setSidebarOpen} />
+                <SidebarNavigation closeSidebar={closeSidebar} />
 
                 {/* Footer Links */}
                 <SidebarFooter />

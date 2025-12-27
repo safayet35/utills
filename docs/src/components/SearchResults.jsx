@@ -1,4 +1,14 @@
-const SearchResults = ({ results }) => {
+import { useNavigate } from "react-router";
+import { useSidebar } from "../context/SidebarContext";
+const SearchResults = ({ results, setSearchQuery }) => {
+    const { closeSidebar } = useSidebar();
+    const navigate = useNavigate();
+    const handleClick = path => {
+        navigate(`/docs/api/${path}`);
+        setSearchQuery("");
+        closeSidebar();
+    };
+
     if (results.length === 0) {
         return (
             <div className="absolute mt-2 w-full rounded-lg border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-4 text-sm text-gray-500">
@@ -17,9 +27,10 @@ const SearchResults = ({ results }) => {
             shadow-sm
         "
         >
-            {results.map((item, index) => (
+            {results.map(({ item }, index) => (
                 <div
-                    key={index}
+                    onClick={() => handleClick(item.name)}
+                    key={item.name}
                     className="
                         px-4 py-3 cursor-pointer
                         hover:bg-gray-100 dark:hover:bg-gray-800
@@ -28,7 +39,7 @@ const SearchResults = ({ results }) => {
                     "
                 >
                     <p className="text-sm font-medium text-gray-900 dark:text-gray-100">
-                        {item.methodName}
+                        {item.name}
                     </p>
                     <p className="text-xs text-gray-500 dark:text-gray-400 line-clamp-2">
                         {item.description}

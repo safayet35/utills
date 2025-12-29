@@ -15,6 +15,7 @@
     "test": "vitest"
   },
   "devDependencies": {
+    "jsdom": "^27.4.0",
     "typescript": "^5.9.3",
     "vitest": "^4.0.16"
   }

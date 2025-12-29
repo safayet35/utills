@@ -1,5 +1,5 @@
 // wee add here are all available methods
-// contributor add your method information like this pattern
+// add your method information like this pattern
 
 const methods = [
     {
@@ -423,6 +423,164 @@ slugify("Hello World!"); // "hello-world"
 
 // Custom separator
 slugify("React & Vue", { separator: "_" }); // "react_vue"`
+},
+{
+  name: "sortBy",
+  description: "Sorts an array of primitives or objects based on a property, dot-notation path, or custom getter function. Does not mutate the original array.",
+  params: [
+    {
+      name: "array",
+      type: "Array",
+      optional: false,
+      description: "The array to sort."
+    },
+    {
+      name: "iteratee",
+      type: "string | Function | null",
+      optional: true,
+      default: "null",
+      description: "The property to sort by. Can be a string key, a dot path (e.g., 'a.b'), or a function. Use null for primitives."
+    },
+    {
+      name: "options",
+      type: "object",
+      optional: true,
+      default: "{}",
+      description: "Configuration options."
+    },
+    {
+      name: "options.order",
+      type: "'asc' | 'desc'",
+      optional: true,
+      default: "'asc'",
+      description: "The sort direction."
+    }
+  ],
+  returns: "Array",
+  example: `import { sortBy } from "utills";
+
+const products = [
+  { name: "Laptop", price: 1000, meta: { rating: 4.5 } },
+  { name: "Mouse", price: 20, meta: { rating: 4.8 } },
+  { name: "Keyboard", price: 50, meta: { rating: 4.2 } }
+];
+
+// 1. Sort by Nested Property + Descending Order
+const bestRated = sortBy(products, "meta.rating", { order: "desc" });
+// => Mouse (4.8), Laptop (4.5), Keyboard (4.2)
+
+// 2. Sort by Custom Getter (Computed Value) + Ascending
+const cheapest = sortBy(products, (item) => item.price, { order: "asc" });
+// => Mouse (20), Keyboard (50), Laptop (1000)
+
+// 3. Sort Primitives + Descending
+const nums = sortBy([3, 1, 4, 2], null, { order: "desc" });
+// => [4, 3, 2, 1]`
+},
+{
+  name: "randomNumber",
+  description: "Generates a random number between a minimum and maximum value, with support for integers (inclusive) and floating-point numbers.",
+  params: [
+    {
+      name: "min",
+      type: "number",
+      optional: false,
+      description: "The minimum value (inclusive)."
+    },
+    {
+      name: "max",
+      type: "number",
+      optional: false,
+      description: "The maximum value."
+    },
+    {
+      name: "options",
+      type: "object",
+      optional: true,
+      default: "{}",
+      description: "Configuration options."
+    },
+    {
+      name: "options.float",
+      type: "boolean",
+      optional: true,
+      default: "false",
+      description: "If true, returns a floating-point number. If false, returns an integer."
+    }
+  ],
+  returns: "number",
+  example: `import { randomNumber } from "utills";
+
+// Generate a random integer between 1 and 100
+const id = random(1, 100);
+
+// Generate a random float for coordinates
+const opacity = random(0, 1, { float: true });`
+},
+{
+  name: "copyToClipboard",
+  description: "Copies text to the clipboard using the modern Clipboard API, gracefully falling back to legacy methods for wider browser compatibility.",
+  params: [
+    {
+      name: "text",
+      type: "string",
+      optional: false,
+      description: "The string to copy to the clipboard."
+    }
+  ],
+  returns: "Promise<boolean>",
+  example: `import { copyToClipboard } from "utills";
+
+const handleCopy = async () => {
+  const success = await copyToClipboard("API_KEY_12345");
+  if (success) {
+    alert("Copied successfully!");
+  } else {
+    alert("Failed to copy.");
+  }
+};`
+},
+{
+  name: "formatDate",
+  description: "Formats a Date object, timestamp, or string into a customizable string pattern. Supports escaping text using square brackets [].",
+  params: [
+    {
+      name: "date",
+      type: "Date | string | number",
+      optional: false,
+      description: "The date to format (Date object, ISO string, or timestamp)."
+    },
+    {
+      name: "pattern",
+      type: "string",
+      optional: false,
+      description: "The format pattern (e.g., 'YYYY-MM-DD'). Use [text] to escape characters."
+    }
+  ],
+  returns: "string",
+  example: `import { formatDate } from "utills";
+
+const date = new Date("2023-10-05T14:30:00");
+
+// 1. Standard Date
+formatDate(date, "YYYY-MM-DD");
+// => "2023-10-05"
+
+// 2. 12-Hour Time with AM/PM
+formatDate(date, "hh:mm a");
+// => "02:30 PM"
+
+// 3. 24-Hour Time
+formatDate(date, "HH:mm:ss");
+// => "14:30:00"
+
+// 4. Custom Text Escaping (using [])
+formatDate(date, "[Date:] DD/MM/YYYY [at] hh:mm a");
+// => "Date: 05/10/2023 at 02:30 PM"
+
+// 5. Timestamp Input
+formatDate(1696516200000, "MM-DD-YYYY");
+// => "10-05-2023"`
 }
     
     

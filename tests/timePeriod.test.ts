@@ -1,6 +1,6 @@
 import { timePeriod } from "../src/core/timePeriod.ts";
 import { describe, it, expect } from "vitest"
-console.log("check ", timePeriod(new Date("2025-01-01T05:00:00")))
+
 describe("timePeriod()", () => {
   it("should return morning between 5:00 AM and 11:59 AM", () => {
 

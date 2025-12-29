@@ -143,7 +143,7 @@ Add your utility following the existing pattern, including:
 Example structure:
 
 ```bash
-yourUtility: {
+{
   name: "yourUtility",
   description: "What this utility does",
   params: [],
@@ -160,7 +160,6 @@ This data is used to render the API documentation UI
 
 ```bash
 npm run build
-npm run test
 ```
 
 9: Commit & Open PR

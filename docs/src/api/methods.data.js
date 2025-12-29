@@ -262,6 +262,167 @@ debouncedSearch.flush();
 // Step 4: Cancel to prevent execution
 debouncedSearch.cancel(); 
 /// Function execution canceled, nothing will be printed`
+},
+{
+  name: "throttle",
+  description: "Creates a throttled function that only invokes the provided function at most once per every specified wait period.",
+  params: [
+    {
+      name: "func",
+      type: "function",
+      optional: false,
+      description: "The function to throttle"
+    },
+    {
+      name: "wait",
+      type: "number",
+      optional: false,
+      description: "The number of milliseconds to throttle invocations to"
+    },
+    {
+      name: "options",
+      type: "object",
+      optional: true,
+      default: "{}",
+      description: "Optional configuration object"
+    },
+    {
+      name: "options.leading",
+      type: "boolean",
+      optional: true,
+      default: "true",
+      description: "Specify invoking on the leading edge of the timeout"
+    },
+    {
+      name: "options.trailing",
+      type: "boolean",
+      optional: true,
+      default: "true",
+      description: "Specify invoking on the trailing edge of the timeout"
+    }
+  ],
+  returns: "Function",
+  example: `import { throttle } from "utills";
+
+// 1. Standard: UI Updates (Runs on start & end)
+const onResize = throttle((w: number) => { /* expensive layout update */ }, 1000);
+
+onResize(500); // => Executed immediately (Leading)
+onResize(550); // ... ignored ...
+onResize(600); // => Executed after 1000ms (Trailing with 600)
+
+// 2. Leading Only: Prevent Button Spam (Runs on start only)
+const onPay = throttle(() => { /* process payment */ }, 2000, { trailing: false });
+
+onPay(); // => Executed immediately
+onPay(); // ... ignored ...
+onPay(); // ... ignored ...
+
+// 3. Trailing Only: Analytics/Search (Runs on end only)
+const trackMouse = throttle((x: number) => { /* save position */ }, 1000, { leading: false });
+
+trackMouse(10); // ... waits ...
+trackMouse(20); // => Executed after 1000ms with (20)
+
+// 4. Cancellation: Component Cleanup
+const heavyTask = throttle(() => { /* heavy operation */ }, 5000);
+
+heavyTask();          // Leading execution
+heavyTask();          // Schedules trailing execution...
+heavyTask.cancel();   // Pending trailing execution is cleared and never runs`
+},
+{
+  name: "truncate",
+  description: "Truncates a string to a specific length, optionally preserving word boundaries and adding a custom omission suffix.",
+  params: [
+    {
+      name: "str",
+      type: "string",
+      optional: false,
+      description: "The input string to truncate."
+    },
+    {
+      name: "length",
+      type: "number",
+      optional: false,
+      description: "The maximum length of the resulting string."
+    },
+    {
+      name: "options",
+      type: "object",
+      optional: true,
+      default: "{}",
+      description: "Configuration options."
+    },
+    {
+      name: "options.omission",
+      type: "string",
+      optional: true,
+      default: '"..."',
+      description: "The string to append to the truncated text."
+    },
+    {
+      name: "options.separator",
+      type: "string | RegExp",
+      optional: true,
+      default: "undefined",
+      description: "A pattern (string or RegExp) to truncate at natural breaks (like spaces)."
+    }
+  ],
+  returns: "string",
+  example: `import { truncate } from "utills";
+// Basic usage
+truncate("Hello World", 8); 
+// => "Hello..."
+
+// With custom omission
+truncate("Long text here", 10, { omission: ".." }); 
+// => "Long tex.."
+
+// Preserving words
+truncate("This is a sentence", 12, { separator: " " }); 
+// => "This is..."`
+},
+{
+  name: "slugify",
+  description: "Converts a string into a URL-friendly slug by removing special characters, handling accents, and replacing whitespace.",
+  params: [
+    {
+      name: "str",
+      type: "string",
+      optional: false,
+      description: "The string to convert."
+    },
+    {
+      name: "options",
+      type: "object",
+      optional: true,
+      default: "{}",
+      description: "Configuration options."
+    },
+    {
+      name: "options.separator",
+      type: "string",
+      optional: true,
+      default: '"-"',
+      description: "The character to separate words."
+    },
+    {
+      name: "options.lowercase",
+      type: "boolean",
+      optional: true,
+      default: "true",
+      description: "Whether to convert the string to lowercase."
+    }
+  ],
+  returns: "string",
+  example: `import { slugify } from "utills";
+
+// Standard usage
+slugify("Hello World!"); // "hello-world"
+
+// Custom separator
+slugify("React & Vue", { separator: "_" }); // "react_vue"`
 }
     
     

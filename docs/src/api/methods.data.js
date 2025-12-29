@@ -540,47 +540,51 @@ const handleCopy = async () => {
   }
 };`
 },
+
 {
   name: "formatDate",
-  description: "Formats a Date object, timestamp, or string into a customizable string pattern. Supports escaping text using square brackets [].",
+  description: "Formats dates using custom patterns, standard locale styles, or human-readable relative time strings.",
   params: [
     {
       name: "date",
       type: "Date | string | number",
       optional: false,
-      description: "The date to format (Date object, ISO string, or timestamp)."
+      description: "The input date."
     },
     {
-      name: "pattern",
+      name: "format",
       type: "string",
-      optional: false,
-      description: "The format pattern (e.g., 'YYYY-MM-DD'). Use [text] to escape characters."
+      optional: true,
+      default: '"medium"',
+      description: "Pattern ('YYYY-MM-DD'), Style ('full', 'medium', 'short'), or 'relative'."
+    },
+    {
+      name: "locale",
+      type: "string",
+      optional: true,
+      default: '"en-US"',
+      description: "BCP 47 language tag (e.g., 'en-US', 'bn-BD')."
     }
   ],
   returns: "string",
   example: `import { formatDate } from "utills";
 
-const date = new Date("2023-10-05T14:30:00");
+const now = new Date();
 
-// 1. Standard Date
-formatDate(date, "YYYY-MM-DD");
-// => "2023-10-05"
+// 1. Custom Pattern with Locale
+formatDate(now, "DD MMMM, YYYY", "bn-BD");
+// => "২৫ অক্টোবর, ২০২৩" (Output depends on locale)
 
-// 2. 12-Hour Time with AM/PM
-formatDate(date, "hh:mm a");
-// => "02:30 PM"
+// 2. Human Readable (Relative)
+formatDate(Date.now() - 3600000, "relative");
+// => "1 hour ago"
 
-// 3. 24-Hour Time
-formatDate(date, "HH:mm:ss");
-// => "14:30:00"
+formatDate(Date.now() - 3600000, "relative", "es-ES");
+// => "hace 1 hora"
 
-// 4. Custom Text Escaping (using [])
-formatDate(date, "[Date:] DD/MM/YYYY [at] hh:mm a");
-// => "Date: 05/10/2023 at 02:30 PM"
-
-// 5. Timestamp Input
-formatDate(1696516200000, "MM-DD-YYYY");
-// => "10-05-2023"`
+// 3. Standard Styles
+formatDate(now, "full", "en-US");
+// => "Wednesday, October 25, 2023"`
 }
     
     

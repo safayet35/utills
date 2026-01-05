@@ -1,0 +1,1 @@
+{"version":3,"file":"truncate.d.ts","sourceRoot":"","sources":["../../src/core/truncate.ts"],"names":[],"mappings":"AAAA;;;;;;;;;;;;;;;;GAgBG;AACH,wBAAgB,QAAQ,CACtB,GAAG,EAAE,MAAM,EACX,MAAM,EAAE,MAAM,EACd,OAAO,GAAE;IAAE,QAAQ,CAAC,EAAE,MAAM,CAAC;IAAC,SAAS,CAAC,EAAE,MAAM,GAAG,MAAM,CAAA;CAAO,GAC/D,MAAM,CA2DR"}

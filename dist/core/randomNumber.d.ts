@@ -14,26 +14,7 @@
  * random(1, 5); // Returns an integer between 1 and 5 (e.g., 3)
  * random(1.5, 5.5, { float: true }); // Returns a float (e.g., 2.74...)
  */
-export function randomNumber(
-  min: number,
-  max: number,
-  options: { float?: boolean } = {}
-): number {
-  if (typeof min !== 'number' || typeof max !== 'number') {
-    throw new TypeError('Arguments "min" and "max" must be numbers.');
-  }
-
-  if (min > max) {
-    throw new Error('The "min" value must be less than or equal to the "max" value.');
-  }
-
-  const { float = false } = options;
-
-  if (float) {
-    return Math.random() * (max - min) + min;
-  }
-
-  // Integer implementation (Inclusive Min, Inclusive Max)
-  // Math.floor(Math.random() * (max - min + 1)) + min
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+export declare function randomNumber(min: number, max: number, options?: {
+    float?: boolean;
+}): number;
+//# sourceMappingURL=randomNumber.d.ts.map

@@ -2,4 +2,15 @@ export { randomId } from "./randomId.js";
 export { generateSecret } from "./generateSecret.js";
 export { timeAgo } from "./timeAgo.js";
 export { timePeriod } from "./timePeriod.js";
+export { readTime } from "./readTime.js";
+export { fuzzySearch } from "./fuzzySearch.js";
+export { debounce } from "./debounce.js";
+export { throttle } from "./throttle.js";
+export { paginate } from "./paginate.js";
+export { slugify } from "./slugify.js";
+export { truncate } from "./truncate.js";
+export { sortBy } from "./sortBy.js";
+export { randomNumber } from "./randomNumber.js";
+export { copyToClipboard } from "./copyToClipboard.js";
+export { formatDate } from "./formatDate.js";
 //# sourceMappingURL=index.d.ts.map
